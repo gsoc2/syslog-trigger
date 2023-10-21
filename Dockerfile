@@ -1,7 +1,7 @@
 FROM golang:alpine AS builder
 RUN apk update && apk add --no-cache git
-COPY . $GOPATH/src/github.com/brightzheng100/go-simple-udp-server/
-WORKDIR $GOPATH/src/github.com/brightzheng100/go-simple-udp-server/
+COPY . $GOPATH/src/github.com/gsoc2/go-simple-udp-server/
+WORKDIR $GOPATH/src/github.com/gsoc2/go-simple-udp-server/
 RUN go get -d -v
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -ldflags="-w -s" -o /go/bin/app
 
